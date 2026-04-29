@@ -20,90 +20,147 @@ export default function HomePage() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-ink-900 text-white">
+    <section className="relative overflow-hidden bg-[#070b20] text-white">
       <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/hero.jpg')" }}
+        className="pointer-events-none absolute inset-x-0 top-0 h-[640px] opacity-40"
+        style={{
+          background:
+            "radial-gradient(60% 60% at 50% 30%, rgba(124, 58, 237, 0.45) 0%, rgba(7, 11, 32, 0) 70%)",
+        }}
         aria-hidden="true"
       />
       <div
-        className="absolute inset-0 bg-gradient-to-br from-ink-900/90 via-ink-900/75 to-ink-900/60"
+        className="pointer-events-none absolute inset-x-0 top-1/3 h-[520px] opacity-50"
+        style={{
+          background:
+            "radial-gradient(50% 50% at 50% 50%, rgba(249, 115, 22, 0.35) 0%, rgba(7, 11, 32, 0) 70%)",
+        }}
         aria-hidden="true"
       />
-      <div className="absolute inset-0 opacity-20 mix-blend-screen" aria-hidden="true">
-        <div className="absolute -left-20 top-10 h-72 w-72 rounded-full bg-brand-500 blur-3xl" />
-        <div className="absolute right-0 top-40 h-96 w-96 rounded-full bg-brand-400 blur-3xl" />
-      </div>
-      <div className="container relative grid gap-10 py-20 sm:py-24 lg:grid-cols-2 lg:py-32">
-        <div>
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-wider text-brand-200">
-            <Icon name="bolt" className="h-3.5 w-3.5" />
-            {site.license}
-          </span>
-          <h1 className="mt-5 text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-            <span className="text-brand-400">daves electrics</span>
-          </h1>
-          <p className="mt-6 max-w-xl text-lg text-ink-200">
-            {site.name} is a team of licensed, insured electricians serving homes and businesses across {site.address.city} and the surrounding area. Same-day service, upfront pricing, and clean work — guaranteed.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link href="/contact" className="btn-primary">
-              Get a free estimate
-            </Link>
-            <a href={site.phoneHref} className="btn-secondary">
-              <Icon name="phone" className="mr-2 h-4 w-4" />
-              {site.phone}
-            </a>
-          </div>
-          <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm text-ink-300">
-            {[
-              "Licensed & insured",
-              "24/7 emergency dispatch",
-              "Upfront flat-rate pricing",
-              "100% workmanship guarantee",
-            ].map((item) => (
-              <li key={item} className="flex items-center gap-1.5">
-                <Icon name="check" className="h-4 w-4 text-brand-400" />
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
 
-        <div className="relative">
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-1 backdrop-blur">
-            <div className="rounded-xl bg-gradient-to-br from-ink-800 to-ink-900 p-8">
-              <div className="mb-6 flex items-center justify-between">
-                <div>
-                  <p className="text-xs uppercase tracking-wider text-brand-300">Most requested</p>
-                  <h2 className="mt-1 text-xl font-semibold">Today&apos;s top services</h2>
-                </div>
-                <span className="rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-medium text-emerald-300">
-                  Available now
-                </span>
+      <div className="container relative pb-0 pt-20 text-center sm:pt-24 lg:pt-32">
+        <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-wider text-brand-200">
+          <Icon name="bolt" className="h-3.5 w-3.5" />
+          {site.license}
+        </span>
+
+        <h1 className="mx-auto mt-6 max-w-4xl text-5xl font-semibold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
+          The power behind
+          <br />
+          <span className="bg-gradient-to-r from-brand-300 via-brand-400 to-amber-300 bg-clip-text text-transparent">
+            daves electrics
+          </span>
+        </h1>
+
+        <p className="mx-auto mt-6 max-w-2xl text-lg text-ink-200 sm:text-xl">
+          Tools and trends evolve, but craftsmanship endures. Licensed, insured electricians for every home and business across {site.address.city}.
+        </p>
+
+        <form
+          action="/contact"
+          className="mx-auto mt-10 flex max-w-xl flex-col gap-3 sm:flex-row"
+        >
+          <div className="flex flex-1 items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-1 backdrop-blur">
+            <Icon name="phone" className="h-4 w-4 flex-shrink-0 text-brand-300" />
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Enter your phone number"
+              className="w-full bg-transparent py-3 text-sm text-white placeholder:text-ink-400 focus:outline-none"
+            />
+          </div>
+          <button
+            type="submit"
+            className="inline-flex items-center justify-center rounded-xl bg-brand-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-500/30 transition hover:bg-brand-600"
+          >
+            Get a free estimate
+          </button>
+          <Link
+            href="/services"
+            className="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+          >
+            See services
+          </Link>
+        </form>
+
+        <ul className="mx-auto mt-8 flex max-w-3xl flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-ink-300">
+          {[
+            "Licensed & insured",
+            "24/7 emergency dispatch",
+            "Upfront flat-rate pricing",
+            "12-month workmanship guarantee",
+          ].map((item) => (
+            <li key={item} className="flex items-center gap-1.5">
+              <Icon name="check" className="h-4 w-4 text-brand-400" />
+              {item}
+            </li>
+          ))}
+        </ul>
+
+        <div className="relative mx-auto mt-16 max-w-5xl px-2 sm:mt-20">
+          <div
+            className="absolute inset-x-10 -bottom-8 h-40 blur-3xl"
+            style={{
+              background:
+                "radial-gradient(60% 100% at 50% 50%, rgba(249, 115, 22, 0.55), rgba(124, 58, 237, 0.35) 60%, transparent 80%)",
+            }}
+            aria-hidden="true"
+          />
+          <div className="relative overflow-hidden rounded-t-3xl border border-white/10 bg-gradient-to-b from-white/[0.08] to-transparent p-1.5 shadow-2xl shadow-black/40 backdrop-blur">
+            <div className="overflow-hidden rounded-t-2xl bg-ink-900">
+              <div className="flex items-center gap-1.5 border-b border-white/5 bg-ink-950/60 px-4 py-3">
+                <span className="h-2.5 w-2.5 rounded-full bg-rose-400/80" />
+                <span className="h-2.5 w-2.5 rounded-full bg-amber-300/80" />
+                <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/80" />
+                <span className="ml-3 text-xs text-ink-400">daves electrics — service dashboard</span>
               </div>
-              <ul className="space-y-3">
-                {services.slice(0, 4).map((s) => (
-                  <li
-                    key={s.slug}
-                    className="flex items-center gap-3 rounded-lg border border-white/5 bg-ink-800/60 p-3"
-                  >
-                    <span className="flex h-9 w-9 items-center justify-center rounded-md bg-brand-500/15 text-brand-300">
-                      <Icon name={s.icon} className="h-5 w-5" />
-                    </span>
-                    <div className="flex-1">
-                      <p className="text-sm font-semibold text-white">{s.title}</p>
-                      <p className="text-xs text-ink-400">{s.short}</p>
+
+              <div className="grid gap-0 sm:grid-cols-5">
+                <div
+                  className="relative h-48 sm:col-span-2 sm:h-auto"
+                  style={{
+                    backgroundImage: "url('/hero.jpg')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                  aria-hidden="true"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-ink-950/40 via-transparent to-ink-950/60" />
+                </div>
+
+                <div className="p-6 sm:col-span-3 sm:p-8">
+                  <div className="mb-5 flex items-center justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-wider text-brand-300">
+                        Most requested
+                      </p>
+                      <h2 className="mt-1 text-lg font-semibold text-white">
+                        Today&apos;s top services
+                      </h2>
                     </div>
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href="/services"
-                className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-300 hover:text-brand-200"
-              >
-                View all services →
-              </Link>
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-medium text-emerald-300">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                      Available now
+                    </span>
+                  </div>
+                  <ul className="space-y-2.5">
+                    {services.slice(0, 4).map((s) => (
+                      <li
+                        key={s.slug}
+                        className="flex items-center gap-3 rounded-lg border border-white/5 bg-white/[0.03] p-3 transition hover:border-brand-400/30 hover:bg-white/[0.06]"
+                      >
+                        <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-md bg-brand-500/15 text-brand-300">
+                          <Icon name={s.icon} className="h-5 w-5" />
+                        </span>
+                        <div className="flex-1 text-left">
+                          <p className="text-sm font-semibold text-white">{s.title}</p>
+                          <p className="text-xs text-ink-400">{s.short}</p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>

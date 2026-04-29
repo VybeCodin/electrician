@@ -28,7 +28,7 @@ export const services: Service[] = [
     slug: "commercial",
     title: "Commercial Electrical",
     short:
-      "Reliable electrical services for offices, retail, restaurants, and warehouses.",
+      "Dave keeps offices, retail, restaurants, and warehouses powered up and trading.",
     description:
       "Keep your business running with electrical work scheduled around your hours. We're licensed for projects of every size.",
     features: [
